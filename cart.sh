@@ -11,8 +11,9 @@ mv cart-main cart
 cd cart
 npm install
 
+sed -i -e 's/REDIS_ENDPOINT/redis.himaairala/' -e 's/CATALOGUE_ENDPOINT/catalogue.himaairala/' systemd.service
 
-# mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service
-# systemctl daemon-reload
-# systemctl start cart
-# systemctl enable cart
+mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service
+systemctl daemon-reload
+systemctl restart cart
+systemctl enable cart
