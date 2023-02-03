@@ -5,7 +5,7 @@ yum install mysql-community-server -y
 
 systemctl enable mysqld
 systemctl restart mysqld
-
+echo $?
 echo show databases | mysql -uroot -pRoboShop@1
 
 
