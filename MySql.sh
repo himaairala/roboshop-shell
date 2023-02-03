@@ -5,9 +5,8 @@ yum install mysql-community-server -y
 
 systemctl enable mysqld
 systemctl restart mysqld
-echo $?
 echo show databases | mysql -uroot -pRoboShop@1
-
+echo $?
 
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" > /tmp/root-pass-sql
 DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
