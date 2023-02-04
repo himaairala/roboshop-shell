@@ -4,6 +4,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
   else
     echo FAILURE
+    exit
 fi
 echo -e "\e[34mDisable MySql 8 version repo\e[0m"
 dnf module disable mysql -y
@@ -12,6 +13,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
   else
     echo FAILURE
+    exit
 fi
 echo -e "\e[35minstall MySql\e[0m"
 yum install mysql-community-server -y
@@ -20,6 +22,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
   else
     echo FAILURE
+    exit
 fi
 echo -e "\e[36mEnable MySql Service\e[0m"
 systemctl enable mysqld
@@ -27,6 +30,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
   else
     echo FAILURE
+    exit
 fi
 echo -e "\e[32start MySql Service\e[0m"
 systemctl restart mysqld
@@ -34,6 +38,7 @@ if [ $? -eq 0 ]; then
   echo SUCCESS
   else
     echo FAILURE
+    exit
 fi
 
 echo show databases | mysql -uroot -pRoboShop@1
