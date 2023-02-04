@@ -3,7 +3,7 @@ curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/robo
 if [ $? -eq 0 ]; then
   echo SUCCESS
   else
-    echo FALURE
+    echo FAILURE
 fi
 echo -e "\e[34mDisable MySql 8 version repo\e[0m"
 dnf module disable mysql -y
@@ -11,7 +11,7 @@ dnf module disable mysql -y
 if [ $? -eq 0 ]; then
   echo SUCCESS
   else
-    echo FALURE
+    echo FAILURE
 fi
 echo -e "\e[35minstall MySql\e[0m"
 yum install mysql-community-server -y
@@ -19,21 +19,21 @@ yum install mysql-community-server -y
 if [ $? -eq 0 ]; then
   echo SUCCESS
   else
-    echo FALURE
+    echo FAILURE
 fi
 echo -e "\e[36mEnable MySql Service\e[0m"
 systemctl enable mysqld
 if [ $? -eq 0 ]; then
   echo SUCCESS
   else
-    echo FALURE
+    echo FAILURE
 fi
 echo -e "\e[32start MySql Service\e[0m"
 systemctl restart mysqld
 if [ $? -eq 0 ]; then
   echo SUCCESS
   else
-    echo FALURE
+    echo FAILURE
 fi
 
 echo show databases | mysql -uroot -pRoboShop@1
