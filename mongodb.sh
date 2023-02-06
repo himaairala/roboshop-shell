@@ -20,27 +20,18 @@ STAT $?
 PRINT "restart mongodb"
 systemctl restart mongod &>>$LOG
 STAT $?
-exit
 
-PRINT ""
-curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG
-STAT $?
+APP_LOC=/tmp
+$CONTENT=mongodb-main
+DOWNLOAD_APP_CODE
 
-
-cd /tmp
-
-PRINT ""
-unzip -o mongodb.zip &>>$LOG
-STAT $?
-
-PRINT ""
 cd mongodb-main &>>$LOG
-STAT $?
 
-PRINT ""
+
+PRINT "load catalogue schema"
 mongo < catalogue.js &>>$LOG
 STAT $?
 
-PRINT ""
+PRINT "load users schema"
 mongo < users.js &>>$LOG
 STAT $?
