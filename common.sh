@@ -65,7 +65,7 @@ NODEJS(){
    systemctl restart ${COMPONENT} &>>$LOG
    STAT $?
 
-   PRINT " Enable ${COMPONENT} service"
+   PRINT " Enable ${COMPONENT} "
    systemctl enable ${COMPONENT} &>>$LOG
    STAT $?
 }
