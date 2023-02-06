@@ -36,12 +36,12 @@ NODEJS(){
    STAT $?
    PRINT "Remove previous version of App"
 
-   cd /home/roboshop &>>$LOG
-   rm -rf ${COMPONENT} &>>$LOG
+   cd /home/roboshop
+   rm -rf ${COMPONENT}
    STAT $?
 
    PRINT " Extracting App Content"
-   unzip -o /tmp/${COMPONENT}.zip &>>$LOG
+   unzip -o /tmp/${COMPONENT}.zip
    STAT $?
 
 
@@ -52,17 +52,17 @@ NODEJS(){
    npm install &>>$LOG
    STAT $?
    PRINT " Configure Endpoints for SystemD Configuration"
-   sed -i -e 's/REDIS_ENDPOINT/redis.himaairala/' -e 's/CATALOGUE_ENDPOINT/catalogue.himaairala/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG
+   sed -i -e 's/REDIS_ENDPOINT/redis.himaairala/' -e 's/CATALOGUE_ENDPOINT/catalogue.himaairala/' /home/roboshop/${COMPONENT}/systemd.service
    STAT $?
 
 
 
    PRINT "Reload SystemD"
-   systemctl daemon-reload &>>$LOG
+   systemctl daemon-reload
    STAT $?
 
    PRINT "Restart System ${COMPONENT}"
-   systemctl restart ${COMPONENT} &>>$LOG
+   systemctl restart ${COMPONENT}
    STAT $?
 
    PRINT " Enable ${COMPONENT} "
