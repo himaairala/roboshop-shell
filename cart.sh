@@ -18,7 +18,7 @@ STAT $?
 PRINT "Remove previous version of App"
 
 cd /home/roboshop &>>$LOG
-rm -rf cart
+rm -rf cart &>>$LOG
 STAT $?
 
 PRINT " Extracting App Content"
