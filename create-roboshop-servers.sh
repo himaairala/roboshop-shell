@@ -4,7 +4,7 @@
 
 ZONE_ID="Z06349093DDNOKRYZ0JZN"
 SG_NAME="allow-all"
-#ENV="dev
+#ENV="dev"
 
 #############################################
 
@@ -33,7 +33,7 @@ fi
 
 SGID=$(aws ec2 describe-security-grous --filters Name=group-name,Values=${SG_NAME} | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 
-if [ -z "${SGIDID}" ]; then
+if [ -z "${SGID}" ]; then
   echo "Given Security Group does not exist"
   exit 1
 fi
