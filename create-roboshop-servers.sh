@@ -25,7 +25,7 @@ create_ec2() {
 
 ##  Main Program ##
 
-AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-8-Devops-practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
+AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-8-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
 if [ -z "${AMI_ID}" ]; then
   echo "AMI_ID not found"
   exit 1
