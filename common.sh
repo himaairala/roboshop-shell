@@ -79,7 +79,7 @@ mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.
 STAT $?
 
 PRINT "Reload SystemD"
-ystemctl daemon-reload &>>$LOG
+systemctl daemon-reload &>>$LOG
 STAT $?
 
 PRINT "Restart  ${COMPONENT}"
