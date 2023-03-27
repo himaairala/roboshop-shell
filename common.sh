@@ -18,7 +18,7 @@ rm -f $LOG
 DOWNLOAD_APP_CODE()
 {
 
-  if [ -z "$APP_USER" ]; then
+  if [ ! -z "$APP_USER" ]; then
 
     PRINT " Adding Application User"
        id roboshop &>>$LOG
