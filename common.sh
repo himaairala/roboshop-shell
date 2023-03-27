@@ -63,6 +63,8 @@ DOWNLOAD_APP_CODE
 PRINT "Install NodeJs dependencies for App"
 npm install &>>$LOG
 STAT $?
+
+SYSTEMD_SETUP
 }
 
 SYSTEMD_SETUP(){
