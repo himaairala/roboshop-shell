@@ -70,7 +70,7 @@ SYSTEMD_SETUP
 SYSTEMD_SETUP() {
   PRINT "Configure Endpoints for SystemD Configuration"
   sed -i -e 's/REDIS_ENDPOINT_/redis.devops321.online/' -e 's/CATALOGUE_ENDPOINT/dev-catalogue.devops321.online/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG
-  exit
+
   mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
   STAT $?
 
