@@ -102,7 +102,7 @@ JAVA()
   STAT $?
 
   PRINT " Download maven dependencies"
-  mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service &>>$LOG
+  mv /home/roboshop/{$COMPONENT}/systemd.service /etc/systemd/system/{$COMPONENT}.service &>>$LOG
   STAT $?
 
   SYSTEMD_SETUP
