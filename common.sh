@@ -92,7 +92,7 @@ JAVA()
   cd /home/roboshop/${COMPONENT}
 
 
-
+   DOWNLOAD_APP_CODE
    mv ${COMPONENT}-main ${COMPONENT}
    cd ${COMPONENT}
 
