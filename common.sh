@@ -98,12 +98,10 @@ JAVA()
 
 
   PRINT " Download maven dependencies"
-  mvn clean package && target/$COMPONENT-1.0.jar &>>$LOG
+  mvn clean package &>>$LOG  && mv target/$COMPONENT-1.0.jar $COMPONENT.jar &>>$LOG
   STAT $?
 
-  PRINT " Download maven dependencies"
-  mv /home/roboshop/{$COMPONENT}/systemd.service /etc/systemd/system/{$COMPONENT}.service &>>$LOG
-  STAT $?
+
 
   SYSTEMD_SETUP
 }
