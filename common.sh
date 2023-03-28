@@ -5,7 +5,7 @@ STAT() {
       echo -e "\e[31mFAILURE\e[0m"
       echo check the error in $LOG file
       exit
-      fi
+  fi
 }
 PRINT(){
 
@@ -89,7 +89,13 @@ JAVA()
   yum install maven -y &>>$LOG
   STAT $?
 
+  cd /home/roboshop/${COMPONENT}
+
   DOWNLOAD_APP_CODE
+
+   mv ${COMPONENT}-main ${COMPONENT}
+   cd ${COMPONENT}
+
 
   PRINT " Download maven dependencies"
   mvn clean package && target/$COMPONENT-1.0.jar &>>$LOG
