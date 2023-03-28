@@ -112,7 +112,7 @@ PYTHON()
   CONTENT=$COMPONENT
   APP_USER=roboshop
 
-  PRINT"Install python "
+  PRINT "Install python "
   yum install python36 gcc python3-devel -y &>>$LOG
   STAT $?
 
@@ -120,7 +120,7 @@ PYTHON()
       mv ${COMPONENT}-main ${COMPONENT}
       cd ${COMPONENT}
 
-PRINT"Install python dependencies"
+PRINT "Install python dependencies"
 pip3 install -r requirements.txt &>>$LOG
 STAT $?
 }
