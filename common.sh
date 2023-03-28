@@ -93,6 +93,8 @@ JAVA()
 
 
    DOWNLOAD_APP_CODE
+    mv ${COMPONENT}-main ${COMPONENT}
+    cd ${COMPONENT}
    cd /home/roboshop/{$COMPONENT}
 
   PRINT " Download maven dependencies"
