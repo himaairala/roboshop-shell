@@ -127,3 +127,33 @@ USER_ID =${id -u roboshop}
 GROUP_ID =${id -g roboshop}
 sed -i -e "/uid/ c uid = ${USER_ID}" -e "/uid/ c uid = ${GROUP_ID}" {$COMPONENT}.ini
 }
+
+GOLANG()
+{
+  APP_LOC=/home/roboshop
+  CONTENT=$COMPONENT
+  APP_USER=roboshop
+
+  PRINT "Install golang "
+  yum install golang -y &>>$LOG
+  STAT $?
+
+   DOWNLOAD_APP_CODE
+        mv ${COMPONENT}-main ${COMPONENT}
+        cd ${COMPONENT}
+
+  PRINT ""
+  go mod init ${COMPONENT}
+  STAT $?
+
+  PRINT "Creating new go module"
+  go get
+  STAT $?
+
+  PRINT "build golang"
+  go build
+  STAT $?
+
+  SYSTEMD_SETUP
+
+}
