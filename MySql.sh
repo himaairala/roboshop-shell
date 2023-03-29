@@ -30,6 +30,9 @@ PRINT "start MySql Service"
 systemctl restart mysqld &>>$LOG
 STAT $?
 
+PRINT "Reset Default Password"
+mysql_secure_installation --set-root-pass ${ROBOSHOP_MYSQL_PASSWORD}
+STAT $?
 
 echo show databases | mysql -uroot -p${ROBOSHOP_MYSQL_PASSWORD} &>>$LOG
 
