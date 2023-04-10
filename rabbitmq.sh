@@ -1,7 +1,7 @@
 COMPONENT=rabbitmq
 source common.sh
 
-RABBITMQ_APP_USER_PASSWORD =$1
+RABBITMQ_APP_USER_PASSWORD=$1
 
 if [ -z "$1" ]; then
   echo "input password is missing"
