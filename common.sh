@@ -89,7 +89,7 @@ JAVA()
   yum install maven -y &>>$LOG
   STAT $?
 
-  cd /home/roboshop/${COMPONENT}
+
 
 
    DOWNLOAD_APP_CODE
