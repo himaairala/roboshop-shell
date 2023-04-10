@@ -1,5 +1,6 @@
 COMPONENT=rabbitmq
 source common.sh
+APP_USER=roboshop
 RABBITMQ_APP_USER_PASSWORD=$1
 
 if [ -z "$1" ]; then
