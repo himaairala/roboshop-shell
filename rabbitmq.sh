@@ -34,7 +34,7 @@ STAT $?
 
 
 PRINT "Add Application User "
-rabbitmqctl add_user roboshop {RABBITMQ_APP_USER_PASSWORD} &>>$LOG
+rabbitmqctl add_user roboshop ${RABBITMQ_APP_USER_PASSWORD} &>>$LOG
 STAT $?
 
 PRINT "Configure application  user  tags"
