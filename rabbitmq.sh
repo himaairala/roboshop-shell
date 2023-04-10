@@ -1,6 +1,6 @@
 COMPONENT=rabbitmq
 source common.sh
-APP_USER=roboshop
+
 RABBITMQ_APP_USER_PASSWORD=$1
 
 if [ -z "$1" ]; then
@@ -38,6 +38,16 @@ STAT $?
 
 
 PRINT "Add Application User"
+
+if [ ! -z "$APP_USER" ]; then
+
+    PRINT " Adding Application User"
+       id roboshop &>>$LOG
+       if [ $? -ne 0 ]; then
+         useradd roboshop &>>$LOG
+         fi
+       STAT $?
+  fi
 rabbitmqctl add_user roboshop ${RABBITMQ_APP_USER_PASSWORD}  &>>$LOG
 STAT $?
 
