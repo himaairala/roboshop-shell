@@ -1,5 +1,3 @@
-
-
 COMPONENT=frontend
 CONTENT="*"
 source common.sh
